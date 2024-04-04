@@ -5,23 +5,20 @@ int next_fib_number(int first_num, int second_num){
     return first_num+second_num;
 }
 
-int main ()
+int fibonachi (int ordinal_num)
 {
     int fib_num, fib_curr=1, fib_pref=1;
-    printf("What number?\n");
-    int ordinal_num;
-    scanf("%d", &ordinal_num);
     if (ordinal_num<=0){
-        printf("NULL");
+        fib_num=NULL;
     }
     if( ordinal_num == 1 ){
-        printf("Answer is 0");
+        fib_num=0;
     }
     if( ordinal_num == 2 ){
-        printf("Answer is 1");
+        fib_num=1;
     }
     if( ordinal_num == 3 ){
-        printf("Answer is 1");
+        fib_num=1;
     }
     if( ordinal_num > 3 ) {
         for( ;ordinal_num>3;ordinal_num--){
@@ -29,7 +26,24 @@ int main ()
             fib_pref=fib_curr;
             fib_curr=fib_num;
         }
-    printf("Answer is %d", fib_num);
     }
-    return 0;
+    return fib_num;
+}
+
+void compare(int a, int b){
+    if (a==b){
+        printf("True\n");
+    }
+    else printf("Error:d a='%d', b='%d'\n", a, b);
+}
+
+int main() {
+    compare(fibonachi(8), 13);
+    compare(fibonachi(0), NULL);
+    compare(fibonachi(1), 0);
+    compare(fibonachi(3), 1);
+    compare(fibonachi(5), 3);
+    compare(fibonachi(10), 34);
+    compare(fibonachi(12), 89);
+    compare(fibonachi(23), 17711);
 }
